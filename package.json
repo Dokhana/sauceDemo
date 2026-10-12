@@ -1,0 +1,33 @@
+{
+  "name": "saucedemo-cypress-bdd",
+  "version": "1.0.0",
+  "description": "E2E test automation for the Sauce Demo store using Cypress, JavaScript and Cucumber (BDD)",
+  "author": "Mohamed Dokhana",
+  "license": "MIT",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "test:smoke": "cypress run --env tags=@smoke",
+    "test:regression": "cypress run --env tags=@regression"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^28.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "cypress": "^16.1.1",
+    "esbuild": "^0.28.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js",
+    "filterSpecs": true,
+    "omitFiltered": true,
+    "html": {
+      "enabled": true,
+      "output": "reports/cucumber-report.html"
+    },
+    "json": {
+      "enabled": true,
+      "output": "reports/cucumber-report.json"
+    }
+  }
+}
